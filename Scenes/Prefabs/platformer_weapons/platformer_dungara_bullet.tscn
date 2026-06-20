@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://gyae6v5j5qhu"]
+
+[ext_resource type="Texture2D" uid="uid://rng2o6ikaefk" path="res://Assets/Objects/Barrel (1).png" id="1_o01eh"]
+[ext_resource type="Script" uid="uid://bjbeatpxbofwj" path="res://Scenes/Prefabs/platformer_weapons/platformer_dungara_bullet.gd" id="1_y8hy8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8hy8"]
+radius = 3.0
+height = 18.0
+
+[node name="PlatformerDungaraBullet" type="Area2D" unique_id=1760012967]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_y8hy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=558005016]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_y8hy8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687807468]
+position = Vector2(0, -5.9604645e-08)
+rotation = 1.5707964
+scale = Vector2(0.02895712, 0.06351347)
+texture = ExtResource("1_o01eh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

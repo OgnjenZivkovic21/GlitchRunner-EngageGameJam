@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bb2gt5q4ulqj5"]
+
+[ext_resource type="Script" uid="uid://dq87x45r5t4te" path="res://Scripts/dungara.gd" id="1_85don"]
+[ext_resource type="Texture2D" uid="uid://bnkducuinw7ao" path="res://Assets/platformer_dungara.png" id="1_sm8lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85don"]
+size = Vector2(20, 11)
+
+[node name="Dungara" type="Area2D" unique_id=248724899]
+collision_mask = 2
+script = ExtResource("1_85don")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356008656]
+texture = ExtResource("1_sm8lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1828813933]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_85don")

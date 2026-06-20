@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://h4klp4848rdf"]
+
+[ext_resource type="Script" uid="uid://dq83imhlw8sqv" path="res://Scripts/power_boost.gd" id="1_mc68w"]
+[ext_resource type="Texture2D" uid="uid://bqn2l4k3dvnyh" path="res://Assets/platformer_powerup.png" id="2_mc68w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hj4f"]
+size = Vector2(46.666664, 59.666664)
+
+[node name="power_boost" type="Area2D" unique_id=310864176]
+scale = Vector2(0.3, 0.3)
+collision_mask = 2
+script = ExtResource("1_mc68w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1761110755]
+position = Vector2(-0.3333435, -2.9999924)
+scale = Vector2(0.23697922, 0.23697922)
+texture = ExtResource("2_mc68w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=217870862]
+position = Vector2(0, -3.4999998)
+shape = SubResource("RectangleShape2D_0hj4f")

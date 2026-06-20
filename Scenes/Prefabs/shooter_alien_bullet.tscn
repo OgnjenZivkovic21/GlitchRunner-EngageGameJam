@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dt5oo08765yc3"]
+
+[ext_resource type="Script" uid="uid://cvqubjo0tyu07" path="res://Scripts/shooter_alien_bullet.gd" id="1_3sxfn"]
+[ext_resource type="Texture2D" uid="uid://61674i4vokpp" path="res://Assets/New Piskel (7).png" id="2_gawx2"]
+[ext_resource type="AudioStream" uid="uid://cogrscif0nfgl" path="res://Assets/platform_sounds/drs.ogg" id="3_gawx2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yixn"]
+radius = 4.0
+height = 14.0
+
+[node name="ShooterAlienBullet" type="Area2D" unique_id=631098443]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_3sxfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=235387956]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1yixn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2133999819]
+position = Vector2(-1.4210855e-14, 0)
+rotation = 1.5707964
+scale = Vector2(0.081525095, 0.13978086)
+texture = ExtResource("2_gawx2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1813995020]
+stream = ExtResource("3_gawx2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

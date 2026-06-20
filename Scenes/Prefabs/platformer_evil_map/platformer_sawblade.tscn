@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c8ga8aewp4f8m"]
+
+[ext_resource type="Script" uid="uid://chc3xjeun6h8u" path="res://Scenes/Prefabs/platformer_evil_map/platformer_sawblade.gd" id="1_0ptip"]
+[ext_resource type="Texture2D" uid="uid://b3oovo4dfuow" path="res://Assets/Objects/Saw.png" id="1_3s7pb"]
+[ext_resource type="Script" uid="uid://c2ykc2awigrq0" path="res://Scenes/Prefabs/platformer_evil_map/saw_rotate.gd" id="2_0ptip"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ptip"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aa1va"]
+radius = 8.062258
+
+[node name="PlatformerSawblade" type="StaticBody2D" unique_id=807238423]
+z_index = -1
+collision_layer = 7
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616413606]
+z_index = 4
+position = Vector2(1.9073486e-06, -9.536743e-07)
+scale = Vector2(0.0902486, 0.09024861)
+texture = ExtResource("1_3s7pb")
+script = ExtResource("2_0ptip")
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=760609959]
+collision_mask = 3
+script = ExtResource("1_0ptip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=326290903]
+shape = SubResource("CircleShape2D_0ptip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=672819207]
+z_index = 3
+position = Vector2(1.1368684e-13, -5.684342e-14)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_aa1va")
+
+[connection signal="body_entered" from="hurtbox" to="hurtbox" method="_on_body_entered"]
+[connection signal="body_exited" from="hurtbox" to="hurtbox" method="_on_body_exited"]

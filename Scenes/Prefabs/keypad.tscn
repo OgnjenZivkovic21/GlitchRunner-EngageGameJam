@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cp4g6ca4gl8gv"]
+
+[ext_resource type="Script" uid="uid://bx82keh1qyyis" path="res://Scripts/Keypad.gd" id="1_opndf"]
+
+[node name="Keypad" type="CanvasLayer" unique_id=1227962768]
+process_mode = 3
+script = ExtResource("1_opndf")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=136056822]
+custom_minimum_size = Vector2(250, 350)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -20.0
+offset_right = 34.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1174955286]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer" unique_id=982273133]
+process_mode = 3
+layout_mode = 2
+alignment = 1
+max_length = 4
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer" unique_id=1588813679]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="Button1" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1746699288]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+expand_icon = true
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1363295262]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "2"
+expand_icon = true
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=992141040]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "3"
+expand_icon = true
+
+[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1611175967]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "4"
+expand_icon = true
+
+[node name="Button5" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1275263945]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5"
+expand_icon = true
+
+[node name="Button6" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=826035016]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "6"
+expand_icon = true
+
+[node name="Button7" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=677552336]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "7"
+expand_icon = true
+
+[node name="Button8" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1256990479]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "8"
+expand_icon = true
+
+[node name="Button9" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1360530135]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "9"
+expand_icon = true
+
+[node name="ButtonC" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=914018147]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "C"
+expand_icon = true
+
+[node name="Button0" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=914933390]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+expand_icon = true
+
+[node name="ButtonOK" type="Button" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=164431411]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "OK"
+expand_icon = true

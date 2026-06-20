@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://xsjogn6dp7rm"]
+
+[ext_resource type="Texture2D" uid="uid://c55jwfn5kn1u3" path="res://Assets/Tiles/Tile (15).png" id="1_hycvb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_umrms"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1152319526]
+position = Vector2(-115, -60)
+texture = SubResource("ViewportTexture_umrms")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=162212124]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=940800638]
+
+[node name="Tile(15)" type="Sprite2D" parent="." unique_id=1813112167]
+z_index = 7
+position = Vector2(3, 27)
+rotation = 0.7853982
+texture = ExtResource("1_hycvb")
+
+[node name="Tile(15)2" type="Sprite2D" parent="." unique_id=1340925004]
+z_index = 7
+position = Vector2(-143, -118.000015)
+rotation = 0.7853982
+texture = ExtResource("1_hycvb")
+
+[node name="Tile(15)3" type="Sprite2D" parent="." unique_id=1466632792]
+z_index = 7
+position = Vector2(148.99997, 173)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_hycvb")
+
+[node name="Tile(15)4" type="Sprite2D" parent="." unique_id=1063487662]
+z_index = 7
+position = Vector2(298.00006, 322)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_hycvb")
+
+[node name="Tile(15)5" type="Sprite2D" parent="." unique_id=722824274]
+position = Vector2(-295, -269)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_hycvb")
+
+[node name="Tile(15)6" type="Sprite2D" parent="." unique_id=1557611161]
+z_index = 7
+position = Vector2(444, 470)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_hycvb")
+
+[node name="Tile(15)7" type="Sprite2D" parent="." unique_id=1240052436]
+z_index = 7
+position = Vector2(586, 614)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("1_hycvb")

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bitp8kmd3dahj"]
+
+[ext_resource type="Script" uid="uid://dkh2tvty3ymse" path="res://Scenes/Prefabs/platformer_weapons/platformer_lightsaber.gd" id="1_o1lyo"]
+[ext_resource type="Texture2D" uid="uid://dc83v06f23704" path="res://Assets/platformer_lightsaber.png" id="2_o1lyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33w8n"]
+atlas = ExtResource("2_o1lyo")
+region = Rect2(0, 0, 400, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04jub"]
+atlas = ExtResource("2_o1lyo")
+region = Rect2(400, 0, 400, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j60eo"]
+atlas = ExtResource("2_o1lyo")
+region = Rect2(800, 0, 400, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gayv"]
+atlas = ExtResource("2_o1lyo")
+region = Rect2(400, 0, 400, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d06f"]
+atlas = ExtResource("2_o1lyo")
+region = Rect2(0, 0, 400, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w366e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33w8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04jub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j60eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gayv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d06f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 13.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o1lyo"]
+radius = 8.993202
+height = 58.025143
+
+[node name="PlatformerLightsaber" type="Node2D" unique_id=653538350]
+z_index = 1
+z_as_relative = false
+position = Vector2(-4.7683716e-07, 0)
+rotation = -0.20235029
+script = ExtResource("1_o1lyo")
+
+[node name="attack" type="AnimatedSprite2D" parent="." unique_id=1747807685]
+position = Vector2(18.1745, -0.27512455)
+scale = Vector2(0.11128292, 0.11128292)
+sprite_frames = SubResource("SpriteFrames_w366e")
+frame = 4
+frame_progress = 1.0
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=380518621]
+position = Vector2(8.253351, -16.602121)
+scale = Vector2(1.0000001, 1.0000001)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1438255109]
+position = Vector2(16.811554, 7.574399)
+rotation = 0.19803648
+shape = SubResource("CapsuleShape2D_o1lyo")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

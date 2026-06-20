@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cauwnvwgug7tq"]
+
+[ext_resource type="Script" uid="uid://mnihnj4uu53g" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cf1pj87w3t7cc" path="res://Assets/platformer/player/1.png" id="2_v34u6"]
+[ext_resource type="Texture2D" uid="uid://b0ua4rytfosux" path="res://Assets/platformer/player/2.png" id="3_ak25i"]
+[ext_resource type="Texture2D" uid="uid://c7njknm8vdgca" path="res://Assets/platformer/player/3.png" id="4_fdt7q"]
+[ext_resource type="Texture2D" uid="uid://bu8w45ty8vdbw" path="res://Assets/platformer/player/4.png" id="5_k7ict"]
+[ext_resource type="AudioStream" uid="uid://bm4llnibco7r8" path="res://Assets/platform_sounds/krr.ogg" id="6_v34u6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v34u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ak25i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fdt7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k7ict")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(38, 47)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=825404739 groups=["Player"]]
+z_index = 2
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_cvnsp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1630402553]
+z_index = 1
+position = Vector2(3.8146973e-06, 1.9073486e-06)
+scale = Vector2(0.36, 0.36999997)
+sprite_frames = SubResource("SpriteFrames_6t5aa")
+animation = &"run"
+autoplay = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1520701648]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_vgqql")
+
+[node name="WeaponSlot" type="Marker2D" parent="." unique_id=1638868860]
+position = Vector2(7, 15)
+
+[node name="smrt" type="AudioStreamPlayer2D" parent="." unique_id=279639407]
+stream = ExtResource("6_v34u6")

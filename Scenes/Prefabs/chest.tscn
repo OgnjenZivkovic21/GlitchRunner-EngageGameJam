@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bm57rylp63f8c"]
+
+[ext_resource type="Texture2D" uid="uid://bcdej82ueaf3t" path="res://Assets/Objects/Box.png" id="1_8mu65"]
+[ext_resource type="Script" uid="uid://d25qijfksa103" path="res://Scripts/chest.gd" id="1_b4gcd"]
+[ext_resource type="PackedScene" uid="uid://bci5pbd08bkse" path="res://Scenes/Prefabs/health_potion.tscn" id="2_4awgj"]
+[ext_resource type="PackedScene" uid="uid://bb2gt5q4ulqj5" path="res://Scenes/Prefabs/dungara.tscn" id="3_gnwiu"]
+[ext_resource type="PackedScene" uid="uid://h4klp4848rdf" path="res://Scenes/Prefabs/power_boost.tscn" id="3_hts7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4gcd"]
+atlas = ExtResource("1_8mu65")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4awgj"]
+atlas = ExtResource("1_8mu65")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnwiu"]
+atlas = ExtResource("1_8mu65")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnwiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4gcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4awgj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnwiu")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hts7t"]
+size = Vector2(52, 37)
+
+[node name="Chest" type="Area2D" unique_id=756846082]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_b4gcd")
+loot_item_1 = ExtResource("2_4awgj")
+loot_item_2 = ExtResource("3_hts7t")
+loot_item_3 = ExtResource("3_gnwiu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=141027876]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_gnwiu")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974269463]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hts7t")
+
+[node name="LootSpawnPoint" type="Marker2D" parent="." unique_id=1444661952]
+position = Vector2(0, -44)

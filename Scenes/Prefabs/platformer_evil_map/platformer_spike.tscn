@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b6a6vge1mgqg5"]
+
+[ext_resource type="Script" uid="uid://dk2hnhktc1wx5" path="res://Scenes/Prefabs/platformer_evil_map/platformer_spikes.gd" id="1_rh3qw"]
+[ext_resource type="Texture2D" uid="uid://dvfvvgvql40ev" path="res://Assets/spritesheet.png" id="1_vetwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh3qw"]
+size = Vector2(117.75, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crygl"]
+size = Vector2(86.66667, 70.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ho5x"]
+atlas = ExtResource("1_vetwn")
+region = Rect2(640, 737, 320, 215)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xdm3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ho5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlatformerSpike" type="StaticBody2D" unique_id=1011838672]
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1734233286]
+position = Vector2(0.125, 26.5)
+shape = SubResource("RectangleShape2D_rh3qw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=140923189]
+collision_mask = 6
+script = ExtResource("1_rh3qw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=397492078]
+position = Vector2(1.9868214e-07, 5.25)
+shape = SubResource("RectangleShape2D_crygl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=942362868]
+z_index = 4
+position = Vector2(-0.69767815, 0)
+scale = Vector2(0.37936044, 0.38372093)
+sprite_frames = SubResource("SpriteFrames_2xdm3")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

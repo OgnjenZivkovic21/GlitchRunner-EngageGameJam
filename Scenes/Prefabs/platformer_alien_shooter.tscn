@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dykc3v2nsgpbk"]
+
+[ext_resource type="Script" uid="uid://byravffr1ra4h" path="res://Scripts/platformer_alien_bullet.gd" id="1_p3kud"]
+[ext_resource type="Texture2D" uid="uid://brrscvk8ki5wf" path="res://Assets/platformer/alien_shooter/777.png" id="2_ixojk"]
+[ext_resource type="AudioStream" uid="uid://bvsqntc1opx8h" path="res://Assets/platform_sounds/njium.ogg" id="3_h1wem"]
+[ext_resource type="Texture2D" uid="uid://b6if45p37moe" path="res://Assets/platformer/alien_shooter/pucanjeeee-letiiiiiiiii.png" id="3_rc1kl"]
+[ext_resource type="AudioStream" uid="uid://b0wg1qyes0f8w" path="res://Assets/platform_sounds/plhlhlhlh.ogg" id="4_6eakg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tk1g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ixojk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rc1kl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ex0r5"]
+radius = 23.0
+height = 53.333336
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81g6m"]
+size = Vector2(400, 49.666668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3kud"]
+size = Vector2(200, 22)
+
+[node name="AlienShooter" type="CharacterBody2D" unique_id=1891327684 groups=["enemy"]]
+scale = Vector2(1.5, 1.5)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_p3kud")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1130185984]
+position = Vector2(6, -17)
+scale = Vector2(0.23950197, 0.23950197)
+sprite_frames = SubResource("SpriteFrames_5tk1g")
+autoplay = "default"
+frame_progress = 0.6655609
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=153313636]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1366788642]
+position = Vector2(1, -20)
+shape = SubResource("CapsuleShape2D_ex0r5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=323715179]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_ex0r5")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=204450463]
+position = Vector2(0, -6)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1506664017]
+position = Vector2(-1, -17.833334)
+shape = SubResource("RectangleShape2D_81g6m")
+
+[node name="ShootRange" type="Area2D" parent="." unique_id=1347148991]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootRange" unique_id=917836947]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_p3kud")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1094413414]
+stream = ExtResource("3_h1wem")
+
+[node name="smrtPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1602794521]
+stream = ExtResource("4_6eakg")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="ShootRange" to="." method="_on_shoot_range_body_entered"]
+[connection signal="body_exited" from="ShootRange" to="." method="_on_shoot_range_body_exited"]
